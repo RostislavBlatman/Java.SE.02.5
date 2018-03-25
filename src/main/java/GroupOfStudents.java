@@ -23,7 +23,9 @@ public class GroupOfStudents<T extends Number> {
     }
 
     public void addMarks (Student std, T... marks){
-        if(!listOfStudents.contains(std) || marks == null){return;}
+        if(!listOfStudents.contains(std) || marks == null){
+            return;
+        }
         for(T mark : marks) {
             if (mark.getClass() == Double.class) {
                 if ((Double) mark < 1 || (Double) mark > 5) {

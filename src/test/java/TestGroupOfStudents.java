@@ -22,6 +22,7 @@ public class TestGroupOfStudents {
     private Student artur = new Student("Artur", "Kallimulin");
     private Student roman = new Student("Roman", "Kozlov");
     private Student dimka = new Student("Dimka", "Struzhkin");
+    private Student test = new Student("Test", "Test");
 
     @Before
     public void setUp(){
@@ -29,19 +30,22 @@ public class TestGroupOfStudents {
         phys.addStudents(katya,artur,dimka);
         phil.addStudents(katya,artur);
         engl.addStudents(katya);
+        math.addStudents(test);
+
 
         math.addMarks(katya,5,5,5,5,5);
         math.addMarks(artur,4,4,4,4);
         math.addMarks(roman,3,3,3,3);
         phil.addMarks(katya,5d);
         engl.addMarks(katya,5d,5d,5d);
+        math.addMarks(test,0,7,6,9,-5);
     }
 
     @Test
     public void testForAddStudents(){
         assertEquals("Name: Katya | Last name: Glazacheva",math.getListOfStudents().get(0).toString());
     }
-
+    @Test
     public void testForAddMarks(){
         List<Integer> marks = new ArrayList();
         marks.add(5);
@@ -50,5 +54,11 @@ public class TestGroupOfStudents {
         marks.add(5);
         marks.add(5);
         assertEquals(marks.toString(),math.getGroupMarks().get(0).toString());
+    }
+
+    @Test
+    public void addMarksShouldIgnoreWrongMarks(){
+        assertEquals(math.getGroupMarks().get(4).toString(),"[]");
+
     }
 }

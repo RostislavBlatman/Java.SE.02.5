@@ -15,5 +15,10 @@ public class TestFaculty {
                 facl.compareStudentMarks(facl.getStudents().get(2)));
     }
 
+    @Test
+    public void compareStudentMarksIfStudentNull(){
+        assertEquals("", facl.compareStudentMarks(null));
+    }
+
 
 }
