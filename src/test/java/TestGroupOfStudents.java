@@ -38,7 +38,7 @@ public class TestGroupOfStudents {
         math.addMarks(roman,3,3,3,3);
         phil.addMarks(katya,5d);
         engl.addMarks(katya,5d,5d,5d);
-        math.addMarks(test,0,7,6,9,-5);
+
     }
 
     @Test
@@ -58,6 +58,7 @@ public class TestGroupOfStudents {
 
     @Test
     public void addMarksShouldIgnoreWrongMarks(){
+        math.addMarks(test,0,7,6,9,-5);
         assertEquals(math.getGroupMarks().get(4).toString(),"[]");
 
     }
